@@ -3,6 +3,13 @@ variable "project_name" {
   description = "The name of the project"
 }
 
+variable "region" {
+  type        = string
+  description = "The AWS region to deploy the VPC"
+  default     = "us-east-1"
+
+}
+
 variable "subnets_count" {
   type        = number
   description = "The number of subnets to create"
@@ -20,8 +27,40 @@ variable "cluster_name" {
 
 }
 
-variable "alb_internal" {
-  type        = string
+variable "public_alb" {
+  type        = bool
   description = "The category of the ALB (internal or external)"
-  default     = "false"
+  default     = true
+}
+variable "private_alb" {
+  type        = bool
+  description = "The category of the ALB (internal or external)"
+  default     = false
+}
+
+variable "service_name" {
+  type        = string
+  description = "The name of the service"
+  default     = ""
+}
+
+variable "service_connect" {
+  type        = bool
+  description = "Enable service sevice_connect"
+  default     = false
+
+}
+
+variable "service_connect_name" {
+  type        = string
+  description = "The name of the service connect namespace"
+  default     = ""
+
+}
+
+variable "hosted_zone_name" {
+  type        = string
+  description = "The name of the hosted zone"
+  default     = ""
+
 }
